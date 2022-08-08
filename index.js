@@ -38,9 +38,10 @@ const managerQuestions = [
 ]
 function writeToFile(data) {
     generateHTML(data);
-    fs.writeFile('./index.html', htmlString, (err) =>
-        err ? console.error(err) : console.log("HTML Page Successfully Created!")
-    )
+    console.log(data.managerEmail);
+    // fs.writeFile('./index.html', htmlString, (err) =>
+    //     err ? console.error(err) : console.log("HTML Page Successfully Created!")
+    // )
 }
 
 function init() {
