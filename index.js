@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer')
+const Intern = require ('./lib/intern');
 const generateHTML = require('./generateHTML');
 const { create } = require('domain');
 
@@ -69,6 +70,8 @@ function createManager() {
             var manager = new Manager(managerName, managerID, managerEmail, officeNumber);
 
             teamMembers.push(manager);
+
+            generateTeam();
         });
 
 }
@@ -100,12 +103,46 @@ function createEngineer() {
         ])
         .then(response => {
             var {name, id, email, github} = response;
-            var engineer = Engineer(name, id, email, github);
+            var engineer = new Engineer(name, id, email, github);
             
             teamMembers.push(engineer);
             generateTeam();
         })
 }
+
+function createIntern() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "Please enter the Intern's name: ",
+                name: "internName"
+            },
+            {
+                type: "input",
+                message: "Please enter the Intern's id: ",
+                name: "internId"
+            },
+            {
+                type: "input",
+                message: "Please enter the Intern's e-mail: ",
+                name: "internEmail"
+            },
+            {
+                type: "input",
+                message: "Please enter the Intern's school: ",
+                name: "school"
+            }
+        ])
+        .then(response => {
+            var {name, id, email, school} = response;
+            var intern = new Intern(name, id, email, school);
+            
+            teamMembers.push(intern);
+            generateTeam();
+        })
+}
+
 function writeToFile(data) {
     generateHTML(data);
     console.log(data.managerEmail);
