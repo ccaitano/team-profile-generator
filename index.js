@@ -170,11 +170,10 @@ function renderManagerCard() {
 
 function createPage() {
     renderManagerCard();
-    console.log(managerCard);
-    // generateHTML();
-    // fs.writeFile('./index.html', htmlString, (err) =>
-    //     err ? console.error(err) : console.log("HTML Page Successfully Created!")
-    // )
+    generateHTML(managerCard);
+    fs.writeFile('./index.html', htmlString, (err) =>
+        err ? console.error(err) : console.log("HTML Page Successfully Created!")
+    )
 }
 
 createManager();
