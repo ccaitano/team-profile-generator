@@ -1,11 +1,8 @@
-function renderCard(type) {
-
-}
 
 function generateHTML(data) {
     renderCard(data.type);
     htmlString = ``;
-    
+
     return htmlString;
 }
 

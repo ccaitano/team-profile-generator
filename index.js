@@ -7,7 +7,12 @@ const Intern = require ('./lib/intern');
 const generateHTML = require('./generateHTML');
 const { create } = require('domain');
 
-var teamMembers = [];
+var teamEngineers = [];
+var teamInterns = [];
+var manager;
+var managerCard;
+var engineerCard;
+var internCard;
 
 function generateTeam(){
     inquirer
@@ -62,15 +67,12 @@ function createManager() {
             {
                 type: "input",
                 message: "Please enter the Team Manager's office number: ",
-                name: "managerNumber"
+                name: "officeNumber"
             }
         ])
         .then((response) => {
             var { managerName, managerID, managerEmail, officeNumber } = response;
-            var manager = new Manager(managerName, managerID, managerEmail, officeNumber);
-
-            teamMembers.push(manager);
-
+            manager = new Manager(managerName, managerID, managerEmail, officeNumber);
             generateTeam();
         });
 
@@ -102,10 +104,10 @@ function createEngineer() {
 
         ])
         .then(response => {
-            var {name, id, email, github} = response;
-            var engineer = new Engineer(name, id, email, github);
+            var {engineerName, engineerId, engineerEmail, github} = response;
+            var engineer = new Engineer(engineerName, engineerId, engineerEmail, github);
             
-            teamMembers.push(engineer);
+            teamEngineers.push(engineer);
             generateTeam();
         })
 }
@@ -135,17 +137,41 @@ function createIntern() {
             }
         ])
         .then(response => {
-            var {name, id, email, school} = response;
-            var intern = new Intern(name, id, email, school);
-            
-            teamMembers.push(intern);
+            var {internName, internId, internEmail, school} = response;
+            var intern = new Intern(internName, internId, internEmail, school);            
+            teamInterns.push(intern);
             generateTeam();
         })
 }
 
-function writeToFile(data) {
-    generateHTML(data);
-    console.log(data.managerEmail);
+function renderManagerCard() {
+    console.log(manager);
+    const name = manager.getName();
+    const role = manager.getRole();
+    const id = manager.getId();
+    const email = manager.getEmail();
+    const officeNumber = manager.getOfficeNumber();
+    
+    managerCard = `
+     <div class="card" style="width: 18rem;">
+         <div class="card-body">
+             <h5 class="card-title">${name}</h5>
+             <p class="card-text">${role}</p>
+         </div>
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item">Employee ID: ${id}</li>
+             <li class="list-group-item">E-mail: ${email}</li>
+             <li class="list-group-item">Office Number: ${officeNumber}</li>
+         </ul>
+     </div>
+     `
+     return managerCard;
+}
+
+function createPage() {
+    renderManagerCard();
+    console.log(managerCard);
+    // generateHTML();
     // fs.writeFile('./index.html', htmlString, (err) =>
     //     err ? console.error(err) : console.log("HTML Page Successfully Created!")
     // )
