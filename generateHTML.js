@@ -12,17 +12,18 @@ function generateHTML(managerCard, teamEngineerCards, teamInternCards) {
 </head>
 <body>
     <!-- Team Profile Jumbotron -->
-    <div class="jumbotron jumbotron-fluid bg-info">
+    <div class="jumbotron jumbotron-fluid bg-dark">
         <div class="container mx-auto">
           <h1 class="display-4 text-center font-weight-bolder text-white">Team Profile</h1>
         </div>
     </div>
+    <div class ="container px-1">
     <div class="card-deck">
     ${managerCard}
     ${teamEngineerCards}
     ${teamInternCards}
     </div>
-    
+    </div>
     <!-- Bootstrap JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

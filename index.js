@@ -155,7 +155,7 @@ function renderManagerCard() {
     const officeNumber = manager.getOfficeNumber();
     
     managerCard = `
-     <div class="card" style="width: 18rem;">
+     <div class="card bg-primary" style="width: 18rem;">
          <div class="card-body">
              <h5 class="card-title">${name}</h5>
              <p class="card-text">${role}</p>
@@ -173,7 +173,7 @@ function renderManagerCard() {
 
 function renderEngineerCard(name, role, id, email, github) { 
     engineerCard = `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-success" style="width: 18rem;">
          <div class="card-body">
              <h5 class="card-title">${name}</h5>
              <p class="card-text">${role}</p>
@@ -203,7 +203,7 @@ function generateEngineerCards() {
 
 function renderInternCard(name, role, id, email, school) { 
     internCard = `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-warning" style="width: 18rem;">
          <div class="card-body">
              <h5 class="card-title">${name}</h5>
              <p class="card-text">${role}</p>
