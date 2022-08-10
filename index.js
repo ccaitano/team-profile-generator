@@ -1,3 +1,4 @@
+//Import Necessary Files
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Employee = require('./lib/employee');
@@ -7,6 +8,7 @@ const Intern = require ('./lib/intern');
 const generateHTML = require('./generateHTML');
 const { create } = require('domain');
 
+//Declare Global Variables
 var teamEngineers = [];
 var teamInterns = [];
 var manager;
@@ -16,6 +18,7 @@ var engineerCard;
 var teamInternCards="";
 var internCard;
 
+//Prompts user to add more employees, if all employees have been added, then generate HTML page
 function generateTeam(){
     inquirer
         .prompt([
@@ -43,6 +46,7 @@ function generateTeam(){
         })
 }
 
+//Prompts user for Manager information, then runs generateTeam() function to receive other team member information
 function createManager() {
     inquirer
         .prompt([
@@ -80,6 +84,7 @@ function createManager() {
 
 }
 
+//Prompts user for Engineer information, then runs generateTeam() function to receive other team member information
 function createEngineer() {
     inquirer
         .prompt([
@@ -115,6 +120,7 @@ function createEngineer() {
         })
 }
 
+//Prompts user for Intern information, then runs generateTeam() function to receive other team member information
 function createIntern() {
     inquirer
         .prompt([
@@ -147,6 +153,7 @@ function createIntern() {
         })
 }
 
+//Creates Manager card for HTML
 function renderManagerCard() {
     const name = manager.getName();
     const role = manager.getRole();
@@ -174,7 +181,7 @@ function renderManagerCard() {
      return managerCard;
 }
 
-
+//Creates Engineer cards for HTML
 function renderEngineerCard(name, role, id, email, github) { 
     engineerCard = `
     <div class="row py-4 mx-auto">
@@ -196,6 +203,7 @@ function renderEngineerCard(name, role, id, email, github) {
      return engineerCard;
 }
 
+//Generates engineer cards for all engineers entered by the user
 function generateEngineerCards() {
     for (var i = 0; i < teamEngineers.length; i++ ) {
         let teamEngineer = teamEngineers[i];
@@ -209,6 +217,7 @@ function generateEngineerCards() {
     return teamEngineerCards;
 }
 
+//Creates Intern cards for HTML
 function renderInternCard(name, role, id, email, school) { 
     internCard = `
     <div class="row py-4 mx-auto">
@@ -230,6 +239,7 @@ function renderInternCard(name, role, id, email, school) {
     return internCard;
 }
 
+//Generates intern cards for all interns entered by the user
 function generateInternCards() {
     for (var i = 0; i < teamInterns.length; i++ ) {
         let teamIntern = teamInterns[i];
@@ -243,6 +253,7 @@ function generateInternCards() {
     return teamInternCards;
 }
 
+//Creates HTML page and writes information the index.html
 function createPage() {
     renderManagerCard();
     generateEngineerCards();
@@ -253,4 +264,5 @@ function createPage() {
     )
 }
 
+//Initiates prompts to the user
 createManager();

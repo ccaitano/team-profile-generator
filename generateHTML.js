@@ -1,4 +1,4 @@
-
+//Generate HTML Page based on user input
 function generateHTML(managerCard, teamEngineerCards, teamInternCards) {
     htmlString = `
 <!DOCTYPE html>
@@ -33,4 +33,5 @@ function generateHTML(managerCard, teamEngineerCards, teamInternCards) {
     return htmlString;
 }
 
+//Exports HTML String to index.js file
 module.exports = generateHTML;
