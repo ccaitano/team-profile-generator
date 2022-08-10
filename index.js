@@ -162,7 +162,7 @@ function renderManagerCard() {
          </div>
          <ul class="list-group list-group-flush">
              <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: ${email}</li>
+             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
              <li class="list-group-item">Office Number: ${officeNumber}</li>
          </ul>
      </div>`
@@ -180,8 +180,8 @@ function renderEngineerCard(name, role, id, email, github) {
          </div>
          <ul class="list-group list-group-flush">
              <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: ${email}</li>
-             <li class="list-group-item">GitHub Username: ${github}</li>
+             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
+             <li class="list-group-item">GitHub Username: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
          </ul>
     </div>`
 
@@ -210,7 +210,7 @@ function renderInternCard(name, role, id, email, school) {
          </div>
          <ul class="list-group list-group-flush">
              <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: ${email}</li>
+             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
              <li class="list-group-item">Current School: ${school}</li>
          </ul>
     </div>`
