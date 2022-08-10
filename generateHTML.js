@@ -1,5 +1,5 @@
 
-function generateHTML(managerCard) {
+function generateHTML(managerCard, teamEngineerCards, teamInternCards) {
     htmlString = `
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +17,11 @@ function generateHTML(managerCard) {
           <h1 class="display-4 text-center font-weight-bolder text-white">Team Profile</h1>
         </div>
     </div>
-    
-    <!-- Team Manager Card Added Here -->
-    <div class="container" id="teamManager"></div>
+    <div class="card-deck">
     ${managerCard}
-    <!-- Team Member Cards Added Here -->
-    <div class="container" id="teamMembers"></div>
+    ${teamEngineerCards}
+    ${teamInternCards}
+    </div>
     
     <!-- Bootstrap JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

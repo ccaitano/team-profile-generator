@@ -10,8 +10,10 @@ const { create } = require('domain');
 var teamEngineers = [];
 var teamInterns = [];
 var manager;
-var managerCard;
+var managerCard="";
+var teamEngineerCards="";
 var engineerCard;
+var teamInternCards="";
 var internCard;
 
 function generateTeam(){
@@ -108,6 +110,7 @@ function createEngineer() {
             var engineer = new Engineer(engineerName, engineerId, engineerEmail, github);
             
             teamEngineers.push(engineer);
+
             generateTeam();
         })
 }
@@ -145,7 +148,6 @@ function createIntern() {
 }
 
 function renderManagerCard() {
-    console.log(manager);
     const name = manager.getName();
     const role = manager.getRole();
     const id = manager.getId();
@@ -163,14 +165,78 @@ function renderManagerCard() {
              <li class="list-group-item">E-mail: ${email}</li>
              <li class="list-group-item">Office Number: ${officeNumber}</li>
          </ul>
-     </div>
-     `
+     </div>`
+
      return managerCard;
+}
+
+
+function renderEngineerCard(name, role, id, email, github) { 
+    engineerCard = `
+    <div class="card" style="width: 18rem;">
+         <div class="card-body">
+             <h5 class="card-title">${name}</h5>
+             <p class="card-text">${role}</p>
+         </div>
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item">Employee ID: ${id}</li>
+             <li class="list-group-item">E-mail: ${email}</li>
+             <li class="list-group-item">GitHub Username: ${github}</li>
+         </ul>
+    </div>`
+
+     return engineerCard;
+}
+
+function generateEngineerCards() {
+    for (var i = 0; i < teamEngineers.length; i++ ) {
+        let teamEngineer = teamEngineers[i];
+        let name = teamEngineer.getName();
+        let role = teamEngineer.getRole();
+        let id = teamEngineer.getId();
+        let email = teamEngineer.getEmail();
+        let github = teamEngineer.getGithub();
+        teamEngineerCards += renderEngineerCard(name, role, id, email, github);
+    }
+    return teamEngineerCards;
+}
+
+function renderInternCard(name, role, id, email, school) { 
+    internCard = `
+    <div class="card" style="width: 18rem;">
+         <div class="card-body">
+             <h5 class="card-title">${name}</h5>
+             <p class="card-text">${role}</p>
+         </div>
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item">Employee ID: ${id}</li>
+             <li class="list-group-item">E-mail: ${email}</li>
+             <li class="list-group-item">Current School: ${school}</li>
+         </ul>
+    </div>`
+
+    return internCard;
+}
+
+function generateInternCards() {
+    for (var i = 0; i < teamInterns.length; i++ ) {
+        let teamIntern = teamInterns[i];
+        let name = teamIntern.getName();
+        let role = teamIntern.getRole();
+        let id = teamIntern.getId();
+        let email = teamIntern.getEmail();
+        let school = teamIntern.getSchool();
+        teamInternCards += renderInternCard(name, role, id, email, school);
+    }
+    console.log(teamInternCards);
+    return teamInternCards;
 }
 
 function createPage() {
     renderManagerCard();
-    generateHTML(managerCard);
+    generateEngineerCards();
+    generateInternCards();
+    generateHTML(managerCard, teamEngineerCards, teamInternCards);
     fs.writeFile('./index.html', htmlString, (err) =>
         err ? console.error(err) : console.log("HTML Page Successfully Created!")
     )
