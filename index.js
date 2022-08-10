@@ -155,16 +155,20 @@ function renderManagerCard() {
     const officeNumber = manager.getOfficeNumber();
     
     managerCard = `
-     <div class="card bg-primary" style="width: 18rem;">
-         <div class="card-body">
-             <h5 class="card-title">${name}</h5>
-             <p class="card-text">${role}</p>
-         </div>
-         <ul class="list-group list-group-flush">
-             <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
-             <li class="list-group-item">Office Number: ${officeNumber}</li>
-         </ul>
+    <div class="row py-4 mx-auto">
+        <div class="col-sm col-md-4 col-lg-8">
+            <div class="card bg-primary" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold text-white">${name}</h5>
+                    <p class="card-text text-white">${role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Employee ID: ${id}</li>
+                    <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
+                    <li class="list-group-item">Office Number: ${officeNumber}</li>
+                </ul>
+            </div>
+        </div>
      </div>`
 
      return managerCard;
@@ -173,17 +177,21 @@ function renderManagerCard() {
 
 function renderEngineerCard(name, role, id, email, github) { 
     engineerCard = `
-    <div class="card bg-success" style="width: 18rem;">
-         <div class="card-body">
-             <h5 class="card-title">${name}</h5>
-             <p class="card-text">${role}</p>
-         </div>
-         <ul class="list-group list-group-flush">
-             <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
-             <li class="list-group-item">GitHub Username: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
-         </ul>
-    </div>`
+    <div class="row py-4 mx-auto">
+        <div class="col-sm col-md-4 col-lg-8">
+            <div class="card bg-success" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold text-white">${name}</h5>
+                    <p class="card-text text-white">${role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Employee ID: ${id}</li>
+                    <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
+                    <li class="list-group-item">GitHub Username: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
+                </ul>
+            </div>
+        </div>
+     </div>`
 
      return engineerCard;
 }
@@ -203,17 +211,21 @@ function generateEngineerCards() {
 
 function renderInternCard(name, role, id, email, school) { 
     internCard = `
-    <div class="card bg-warning" style="width: 18rem;">
-         <div class="card-body">
-             <h5 class="card-title">${name}</h5>
-             <p class="card-text">${role}</p>
-         </div>
-         <ul class="list-group list-group-flush">
-             <li class="list-group-item">Employee ID: ${id}</li>
-             <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
-             <li class="list-group-item">Current School: ${school}</li>
-         </ul>
-    </div>`
+    <div class="row py-4 mx-auto">
+        <div class="col-sm col-md-4 col-lg-8">
+            <div class="card bg-warning" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold text-white">${name}</h5>
+                    <p class="card-text text-white">${role}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Employee ID: ${id}</li>
+                    <li class="list-group-item">E-mail: <a href="mailto:${email}" target="_blank">${email}</a></li>
+                    <li class="list-group-item">Current School: ${school}</li>
+                </ul>
+            </div>
+        </div>
+     </div>`
 
     return internCard;
 }
@@ -228,7 +240,6 @@ function generateInternCards() {
         let school = teamIntern.getSchool();
         teamInternCards += renderInternCard(name, role, id, email, school);
     }
-    console.log(teamInternCards);
     return teamInternCards;
 }
 

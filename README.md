@@ -1,7 +1,7 @@
 # team-profile-generator 📄 - [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-HTML generator that displays team members, their roles on the team and their contact information
-## **Description**
+HTML generator that displays team members, their roles on the team and their contact information.
 
+## **Description**
 The `Team Profile Generator` allows the user to generate a standard README file for new projects. The user is able to customize the project title, description, installation instructions, usage information, licensing requirements, contribution guidelines, and test instructions. Contact information for a GitHub profile and email address are also included.
 
 ## **Table of Contents**
@@ -14,17 +14,18 @@ The `Team Profile Generator` allows the user to generate a standard README file 
 
 ## **Installation**
 
-To install this application, make a `clone` of this repository to your local machine. Open the repository in your code editor of choice, and run the `index.js` file in your terminal 🖥️
+To install this application, make a `clone` of this repository to your local machine. Open the repository in your code editor of choice 🖥️ 
 
 ## **Usage**
 
 Once the repository is cloned to your local machine, then:
 
 - Install npm inquirer version 8.2.4 by running `npm install inquirer@8.2.4` in your applicable terminal
+- Install jest by running `npm install --save-dev jest` in your applicable terminal if you would like to run tests on the classes
 - Run `node index.js` in your applicable terminal
-- Follow the prompts in the terminal to enter your project title, description, installation instructions, usage information, contribution guidelines, test instructuions, applicable license information, GitHub username and e-mail address
-- `README.md file successfully created!` will appear in your terminal once your file has been created
-- Locate your successfully generated README file at `./utils/README.md`
+- Follow the prompts in the terminal to enter the team manager information first, followed by entering information for all other members (engineers and interns).
+- `HTML Page Successfully Created!` will appear in your terminal once all team members have been entered and your file has been created
+- Open `index.html` to see the generated HTML file
 
 ![GIF of README Generator Walkthrough](./assets/readme-generator.gif)
 
@@ -70,6 +71,7 @@ SOFTWARE.
 - [JavaScript](https://www.javascript.com/) Scripting Language
 - [Node](https://nodejs.org/en/) JavaScript runtime
 - [npm](https://www.npmjs.com/) Inquirer.js
+- [Jest](https://jestjs.io/) JEST Testing Framework
 
 ## **Questions**
 

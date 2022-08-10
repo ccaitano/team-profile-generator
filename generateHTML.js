@@ -17,12 +17,12 @@ function generateHTML(managerCard, teamEngineerCards, teamInternCards) {
           <h1 class="display-4 text-center font-weight-bolder text-white">Team Profile</h1>
         </div>
     </div>
-    <div class ="container px-1">
-    <div class="card-deck">
-    ${managerCard}
-    ${teamEngineerCards}
-    ${teamInternCards}
-    </div>
+    <div class ="container col">
+        <div class="card-deck">
+            ${managerCard}
+            ${teamEngineerCards}
+            ${teamInternCards}
+        </div>
     </div>
     <!-- Bootstrap JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
