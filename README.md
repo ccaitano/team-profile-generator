@@ -2,7 +2,7 @@
 HTML generator that displays team members, their roles on the team and their contact information.
 
 ## **Description**
-The `Team Profile Generator` allows the user to generate a standard README file for new projects. The user is able to customize the project title, description, installation instructions, usage information, licensing requirements, contribution guidelines, and test instructions. Contact information for a GitHub profile and email address are also included.
+The `Team Profile Generator` allows the user to generate a standard HTML page that displays all team member information. The user is able to add one manager and as many engineers and interns on any given team. All employee names, roles, ids and emails are included. Manager data will also include office number. Engineers wil also include GitHub usernames and interns will also include their current school.
 
 ## **Table of Contents**
 
@@ -27,17 +27,23 @@ Once the repository is cloned to your local machine, then:
 - `HTML Page Successfully Created!` will appear in your terminal once all team members have been entered and your file has been created
 - Open `index.html` to see the generated HTML file
 
-![GIF of README Generator Walkthrough](./assets/readme-generator.gif)
+Team Profile Generator Tests:
 
-README File Generator Prompt Example:
+![GIF of Team Profile Generartor Successful Tests](./assets/successful-test.gif)
 
-![Screenshot of README Generator Prompt in Terminal](./assets/prompt-screenshot.JPG)
+Team Profile Generator User Prompts Walkthrough:
 
-Sample README File:
+![GIF of Team Profile Generator Walkthrough](./assets/user-prompts.gif)
 
-[Sample README File](./assets/sample-README.md)
+Team Profile Generator HTML Product with Working Links and Responsive Layout:
 
-![Screenshot of Sample README](./assets/sample-readme.JPG)
+![GIF of Team Profile Generator HTML Product](./assets/html-page.gif)
+
+Sample HTML File:
+
+[Sample Generated HTML File](./assets/sample-index.html)
+
+![Screenshot of Sample HTML Page](./assets/html-screenshot.JPG)
 
 ## **License**
 
@@ -72,6 +78,7 @@ SOFTWARE.
 - [Node](https://nodejs.org/en/) JavaScript runtime
 - [npm](https://www.npmjs.com/) Inquirer.js
 - [Jest](https://jestjs.io/) JEST Testing Framework
+- [Bootstrap](https://getbootstrap.com/) CSS Framework
 
 ## **Questions**
 
